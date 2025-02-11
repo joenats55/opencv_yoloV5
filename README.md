@@ -1,60 +1,46 @@
-# YOLOv5 Object Detection with OpenCV
+# การตรวจจับวัตถุด้วย YOLOv5 และ OpenCV
 
-## Overview
-This project utilizes **YOLOv5** for object detection using a connected camera. The system captures video frames, processes them with YOLOv5, and displays the detected objects with bounding boxes. Users can also interact with the system by clicking on the video feed to select a point of interest.
+## ภาพรวม
+โครงการนี้ใช้ **YOLOv5** ในการตรวจจับวัตถุผ่านกล้องที่เชื่อมต่อ โดยระบบจะรับภาพวิดีโอจากกล้อง ประมวลผลด้วย YOLOv5 และแสดงผลวัตถุที่ตรวจจับได้ในรูปแบบของกรอบสี่เหลี่ยม ผู้ใช้สามารถโต้ตอบกับระบบโดยคลิกบนวิดีโอเพื่อเลือกจุดที่สนใจ
 
-## Features
-- Uses **YOLOv5** for real-time object detection.
-- Reads video frames from a camera (`/dev/video2`).
-- Displays detected objects with bounding boxes.
-- Allows user interaction via mouse clicks to mark points of interest.
-- Exits gracefully when the user presses `q`.
+## คุณสมบัติ
+- ใช้ **YOLOv5** สำหรับการตรวจจับวัตถุแบบเรียลไทม์
+- อ่านเฟรมวิดีโอจากกล้อง (`/dev/video2`)
+- แสดงวัตถุที่ตรวจจับได้พร้อมกรอบสี่เหลี่ยม
+- รองรับการโต้ตอบของผู้ใช้ผ่านการคลิกเมาส์เพื่อเลือกจุดที่สนใจ
+- ออกจากโปรแกรมได้โดยกดปุ่ม `q`
 
-## Requirements
+## ความต้องการของระบบ
 - Python 3.x
 - OpenCV (`cv2`)
 - PyTorch
-- YOLOv5 model (`best.pt`)
+- โมเดล YOLOv5 (`best.pt`)
 - NumPy
 
-## Installation
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/your-repo/yolov5-object-detection.git
-   cd yolov5-object-detection
-   ```
-2. Install dependencies:
+1. ติดตั้งไลบรารีที่จำเป็น:
    ```sh
    pip install numpy opencv-python torch torchvision torchaudio pandas
    ```
-3. Download the YOLOv5 model (`best.pt`) and place it in the project folder.
+2. ดาวน์โหลดโมเดล YOLOv5 ของพวกนายเอง (`best.pt`) และวางไว้ในโฟลเดอร์ของโปรเจกต์
 
-## Usage
-1. Run the script:
+## วิธีการใช้งาน
+1. รันสคริปต์โดยใช้คำสั่ง:
    ```sh
-   python detect.py
+   python fliename.py
    ```
-2. The program will:
-   - Open the camera feed.
-   - Run YOLOv5 on each frame to detect objects.
-   - Display the processed frame with bounding boxes and a central reference point.
-   - Allow users to click on the frame to mark a point.
-3. Press `q` to exit the program.
+2. ระบบทำหน้าที่:
+   - เปิดกล้องเพื่อรับภาพวิดีโอ
+   - ใช้ YOLOv5 ตรวจจับวัตถุในแต่ละเฟรม
+   - แสดงผลภาพที่ผ่านการประมวลผล พร้อมกรอบสี่เหลี่ยมรอบวัตถุที่ตรวจจับได้
+   - อนุญาตให้ผู้ใช้คลิกที่ภาพเพื่อเลือกจุดสนใจ
+3. กด `q` เพื่อออกจากโปรแกรม
 
-## Code Breakdown
-- **Model Loading:** YOLOv5 is loaded using `torch.hub.load()`.
-- **Video Capture:** OpenCV reads frames from the specified camera.
-- **Inference:** The model detects objects in each frame.
-- **Display:** Bounding boxes and user-selected points are shown on the video.
-- **Exit Handling:** The program stops when the user presses `q`.
+## โครงสร้างของโค้ด
+- **โหลดโมเดล:** ใช้ `torch.hub.load()` ในการโหลดโมเดล YOLOv5
+- **อ่านภาพจากกล้อง:** ใช้ OpenCV ในการรับเฟรมจากกล้อง
+- **การประมวลผลภาพ:** โมเดลจะตรวจจับวัตถุในแต่ละเฟรม
+- **การแสดงผล:** ระบบจะวาดกรอบรอบวัตถุที่พบ และแสดงพิกัดของจุดที่เลือก
+- **การออกจากโปรแกรม:** กด `q` เพื่อปิดระบบ
 
-## License
-This project is licensed under the MIT License.
 
-## Acknowledgments
-- [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5) for the object detection model.
-- OpenCV and PyTorch for image processing and deep learning support.
-
----
-Feel free to contribute or modify the script as needed!
 
